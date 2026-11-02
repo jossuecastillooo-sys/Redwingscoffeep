@@ -1,0 +1,1992 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root {
+  font-family: 'DM Sans', sans-serif;
+
+  color: #f5eee5;
+  background: #120e0b;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+
+  --rw-bg: #120e0b;
+  --rw-surface: #1d1712;
+  --rw-surface-light: #2a2018;
+
+  --rw-cream: #f5eee5;
+  --rw-muted: #a99b8d;
+
+  --rw-gold: #c69a62;
+  --rw-gold-light: #e0bd8b;
+
+  --rw-border: rgba(255, 255, 255, 0.09);
+
+  --rw-radius: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+
+  background: var(--rw-bg);
+  color: var(--rw-cream);
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  font-family: 'DM Sans', sans-serif;
+}
+
+button {
+  color: inherit;
+  cursor: pointer;
+}
+
+button,
+input,
+textarea,
+select {
+  font-size: inherit;
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Playfair Display', serif;
+  margin-top: 0;
+}
+
+p {
+  line-height: 1.6;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.rw-app {
+  min-height: 100vh;
+  overflow: hidden;
+  background: var(--rw-bg);
+}
+
+.rw-eyebrow {
+  display: block;
+
+  color: var(--rw-gold);
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+}
+
+.rw-icon-button {
+  display: grid;
+  place-items: center;
+
+  width: 42px;
+  height: 42px;
+
+  border: 1px solid var(--rw-border);
+  border-radius: 50%;
+
+  background: var(--rw-surface);
+  color: var(--rw-cream);
+}
+
+.rw-icon-button svg {
+  width: 19px;
+  height: 19px;
+}
+
+.rw-primary-button,
+.rw-secondary-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  width: 100%;
+  min-height: 48px;
+
+  padding: 13px 18px;
+
+  border-radius: 12px;
+
+  font-weight: 700;
+  text-decoration: none;
+
+  transition:
+    background 0.2s,
+    transform 0.2s,
+    border-color 0.2s;
+}
+
+.rw-primary-button {
+  border: 1px solid var(--rw-gold);
+  background: var(--rw-gold);
+  color: #1b120b;
+}
+
+.rw-primary-button:hover {
+  background: var(--rw-gold-light);
+}
+
+.rw-secondary-button {
+  border: 1px solid var(--rw-border);
+  background: var(--rw-surface-light);
+  color: var(--rw-cream);
+}
+
+.rw-primary-button svg,
+.rw-secondary-button svg {
+  width: 18px;
+  height: 18px;
+}
+
+.rw-text-button {
+  border: 0;
+  background: transparent;
+
+  color: var(--rw-gold-light);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.rw-text-button:hover {
+  color: var(--rw-cream);
+} 
+/* ========================================
+   REDWINGS COFFEE
+   PARTE 1B: HEADER Y NAVEGACION
+======================================== */
+
+.rw-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  width: 100%;
+  padding: 16px 5%;
+
+  background: rgba(18, 14, 11, 0.94);
+  border-bottom: 1px solid var(--rw-border);
+
+  backdrop-filter: blur(16px);
+}
+
+.rw-header-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  min-width: 0;
+}
+
+.rw-header-brand img {
+  width: 42px;
+  height: 42px;
+
+  object-fit: contain;
+}
+
+.rw-header-brand h1 {
+  margin: 0;
+
+  color: var(--rw-cream);
+  font-size: 19px;
+  letter-spacing: 0.5px;
+}
+
+.rw-header-brand p {
+  margin: 3px 0 0;
+
+  color: var(--rw-muted);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.rw-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rw-header-actions button {
+  position: relative;
+}
+
+.rw-cart-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+
+  display: grid;
+  place-items: center;
+
+  min-width: 19px;
+  height: 19px;
+  padding: 2px 5px;
+
+  border-radius: 50%;
+
+  background: var(--rw-gold);
+  color: #1b120b;
+
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.rw-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+
+  padding: 14px 5%;
+
+  border-bottom: 1px solid var(--rw-border);
+}
+
+.rw-nav button {
+  padding: 7px 0;
+
+  border: 0;
+  background: transparent;
+
+  color: var(--rw-muted);
+  font-size: 12px;
+  font-weight: 600;
+
+  transition: color 0.2s;
+}
+
+.rw-nav button:hover,
+.rw-nav button.active {
+  color: var(--rw-gold-light);
+}
+
+.rw-section {
+  width: 100%;
+  max-width: 1280px;
+
+  margin: 0 auto;
+  padding: 60px 5%;
+}
+
+.rw-section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+
+  margin-bottom: 28px;
+}
+
+.rw-section-header h2 {
+  margin: 8px 0 0;
+
+  color: var(--rw-cream);
+  font-size: clamp(25px, 4vw, 38px);
+}
+
+.rw-section-header p {
+  max-width: 450px;
+  margin: 0;
+
+  color: var(--rw-muted);
+  font-size: 13px;
+}
+
+.rw-divider {
+  width: 100%;
+  height: 1px;
+
+  background: var(--rw-border);
+}
+
+.rw-container {
+  width: 100%;
+  max-width: 1280px;
+
+  margin: 0 auto;
+  padding-right: 5%;
+  padding-left: 5%;
+}
+
+/* ========================================
+   REDWINGS COFFEE
+   PARTE 1C: PRODUCTOS Y TARJETAS
+======================================== */
+
+.rw-products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.rw-product-card {
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+
+  border: 1px solid var(--rw-border);
+  border-radius: var(--rw-radius);
+
+  background: var(--rw-surface);
+
+  transition:
+    transform 0.25s,
+    border-color 0.25s;
+}
+
+.rw-product-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(198, 154, 98, 0.4);
+}
+
+.rw-product-image {
+  position: relative;
+
+  width: 100%;
+  aspect-ratio: 4 / 3;
+
+  overflow: hidden;
+
+  background: var(--rw-surface-light);
+}
+
+.rw-product-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 0.4s;
+}
+
+.rw-product-card:hover .rw-product-image img {
+  transform: scale(1.04);
+}
+
+.rw-product-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+
+  padding: 6px 10px;
+
+  border-radius: 20px;
+
+  background: var(--rw-gold);
+  color: #1b120b;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.rw-product-favorite {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  display: grid;
+  place-items: center;
+
+  width: 36px;
+  height: 36px;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+
+  background: rgba(18, 14, 11, 0.75);
+  color: var(--rw-cream);
+}
+
+.rw-product-favorite svg {
+  width: 17px;
+  height: 17px;
+}
+
+.rw-product-favorite.active {
+  color: #e58b85;
+}
+
+.rw-product-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  padding: 18px;
+}
+
+.rw-product-category {
+  margin-bottom: 7px;
+
+  color: var(--rw-gold);
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.rw-product-info h3 {
+  margin: 0 0 8px;
+
+  color: var(--rw-cream);
+  font-size: 19px;
+  line-height: 1.3;
+}
+
+.rw-product-description {
+  margin: 0 0 18px;
+
+  color: var(--rw-muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.rw-product-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  margin-top: auto;
+}
+
+.rw-product-price {
+  color: var(--rw-gold-light);
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.rw-product-add {
+  display: grid;
+  place-items: center;
+
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  border: 0;
+  border-radius: 12px;
+
+  background: var(--rw-gold);
+  color: #1b120b;
+}
+
+.rw-product-add svg {
+  width: 19px;
+  height: 19px;
+}
+
+.rw-product-add:hover {
+  background: var(--rw-gold-light);
+}
+
+.rw-product-details-button {
+  width: 100%;
+
+  margin-top: 12px;
+  padding: 10px;
+
+  border: 1px solid var(--rw-border);
+  border-radius: 10px;
+
+  background: transparent;
+  color: var(--rw-muted);
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.rw-product-details-button:hover {
+  border-color: var(--rw-gold);
+  color: var(--rw-gold-light);
+}
+
+.rw-products-empty {
+  grid-column: 1 / -1;
+
+  padding: 50px 20px;
+
+  text-align: center;
+
+  border: 1px dashed var(--rw-border);
+  border-radius: var(--rw-radius);
+}
+
+.rw-products-empty h3 {
+  margin-bottom: 8px;
+}
+
+.rw-products-empty p {
+  color: var(--rw-muted);
+  font-size: 13px;
+}
+
+/* ========================================
+   REDWINGS COFFEE
+   PARTE 1D: BUSCADOR Y CATEGORIAS
+======================================== */
+
+.rw-menu-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  margin-bottom: 30px;
+}
+
+.rw-search-container {
+  position: relative;
+
+  width: 100%;
+  max-width: 520px;
+}
+
+.rw-search-container > svg {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+
+  width: 18px;
+  height: 18px;
+
+  transform: translateY(-50%);
+
+  color: var(--rw-muted);
+  pointer-events: none;
+}
+
+.rw-search-input {
+  width: 100%;
+  height: 50px;
+
+  padding: 0 18px 0 48px;
+
+  border: 1px solid var(--rw-border);
+  border-radius: 14px;
+
+  outline: none;
+
+  background: var(--rw-surface);
+  color: var(--rw-cream);
+
+  font-size: 13px;
+
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.rw-search-input::placeholder {
+  color: var(--rw-muted);
+}
+
+.rw-search-input:focus {
+  border-color: var(--rw-gold);
+
+  box-shadow: 0 0 0 3px rgba(198, 154, 98, 0.1);
+}
+
+.rw-categories {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  width: 100%;
+
+  overflow-x: auto;
+
+  padding: 2px 0 10px;
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--rw-gold) transparent;
+}
+
+.rw-category-button {
+  flex-shrink: 0;
+
+  padding: 11px 18px;
+
+  border: 1px solid var(--rw-border);
+  border-radius: 30px;
+
+  background: var(--rw-surface);
+  color: var(--rw-muted);
+
+  font-size: 12px;
+  font-weight: 600;
+
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+}
+
+.rw-category-button:hover {
+  border-color: var(--rw-gold);
+  color: var(--rw-cream);
+}
+
+.rw-category-button.active {
+  border-color: var(--rw-gold);
+
+  background: var(--rw-gold);
+  color: #1b120b;
+}
+
+.rw-menu-result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+
+  margin-bottom: 20px;
+}
+
+.rw-menu-result p {
+  margin: 0;
+
+  color: var(--rw-muted);
+  font-size: 12px;
+}
+
+.rw-menu-result strong {
+  color: var(--rw-cream);
+}
+
+.rw-menu-sort {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: var(--rw-muted);
+  font-size: 11px;
+} 
+/* ========================================
+   REDWINGS COFFEE
+   PARTE 1E: DRAWERS Y VENTANAS
+======================================== */
+
+.rw-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
+
+  padding: 0;
+
+  background: rgba(0, 0, 0, 0.72);
+
+  backdrop-filter: blur(5px);
+
+  animation: rw-fade-in 0.2s ease;
+}
+
+.rw-drawer {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  max-width: 520px;
+  height: 100%;
+
+  overflow-y: auto;
+
+  padding: 28px;
+
+  border-left: 1px solid var(--rw-border);
+
+  background: var(--rw-bg);
+
+  animation: rw-slide-in 0.25s ease;
+}
+
+.rw-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+
+  padding-bottom: 22px;
+
+  border-bottom: 1px solid var(--rw-border);
+}
+
+.rw-drawer-header h2 {
+  margin: 7px 0 0;
+
+  font-size: 28px;
+}
+
+.rw-drawer-header .rw-icon-button {
+  flex-shrink: 0;
+}
+
+.rw-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  flex: 1;
+
+  min-height: 250px;
+
+  padding: 30px 15px;
+
+  text-align: center;
+}
+
+.rw-empty-state > svg {
+  margin-bottom: 18px;
+
+  color: var(--rw-gold);
+}
+
+.rw-empty-state h3 {
+  margin-bottom: 8px;
+
+  font-size: 22px;
+}
+
+.rw-empty-state p {
+  max-width: 300px;
+
+  margin: 0 0 24px;
+
+  color: var(--rw-muted);
+  font-size: 13px;
+}
+
+.rw-empty-state .rw-primary-button {
+  max-width: 240px;
+}
+
+.rw-cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  padding: 24px 0;
+}
+
+.rw-cart-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+
+  padding-bottom: 18px;
+
+  border-bottom: 1px solid var(--rw-border);
+}
+
+.rw-cart-image {
+  width: 82px;
+  height: 82px;
+
+  flex-shrink: 0;
+
+  border-radius: 13px;
+
+  object-fit: cover;
+
+  background: var(--rw-surface);
+}
+
+.rw-cart-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.rw-cart-item-info h3 {
+  margin: 0 0 6px;
+
+  font-size: 16px;
+}
+
+.rw-cart-price {
+  margin: 0 0 12px;
+
+  color: var(--rw-gold-light);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.rw-quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  width: fit-content;
+
+  padding: 5px;
+
+  border: 1px solid var(--rw-border);
+  border-radius: 10px;
+
+  background: var(--rw-surface);
+}
+
+.rw-quantity-control button {
+  display: grid;
+  place-items: center;
+
+  width: 28px;
+  height: 28px;
+
+  border: 0;
+  border-radius: 7px;
+
+  background: var(--rw-surface-light);
+  color: var(--rw-cream);
+}
+
+.rw-quantity-control button svg {
+  width: 14px;
+  height: 14px;
+}
+
+.rw-quantity-control span {
+  min-width: 15px;
+
+  text-align: center;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.rw-remove-button {
+  display: grid;
+  place-items: center;
+
+  width: 32px;
+  height: 32px;
+
+  flex-shrink: 0;
+
+  border: 0;
+  border-radius: 9px;
+
+  background: transparent;
+  color: var(--rw-muted);
+}
+
+.rw-remove-button:hover {
+  background: rgba(229, 139, 133, 0.1);
+  color: #e58b85;
+}
+
+.rw-remove-button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.rw-cart-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  margin-top: auto;
+  padding-top: 20px;
+
+  border-top: 1px solid var(--rw-border);
+}
+
+.rw-cart-actions .rw-primary-button {
+  min-height: 52px;
+}
+
+.rw-checkout {
+  max-width: 560px;
+}
+
+.rw-checkout form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+  padding-top: 24px;
+}
+
+.rw-form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.rw-form-section h3 {
+  margin: 0;
+
+  font-size: 19px;
+}
+
+.rw-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rw-field span {
+  color: var(--rw-muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.rw-field input {
+  width: 100%;
+  min-height: 48px;
+
+  padding: 12px 14px;
+
+  border: 1px solid var(--rw-border);
+  border-radius: 11px;
+
+  outline: none;
+
+  background: var(--rw-surface);
+  color: var(--rw-cream);
+
+  font-size: 13px;
+}
+
+.rw-field input::placeholder {
+  color: #76685c;
+}
+
+.rw-field input:focus {
+  border-color: var(--rw-gold);
+}
+
+.rw-delivery-option,
+.rw-payment-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+
+  padding: 16px;
+
+  border: 1px solid var(--rw-border);
+  border-radius: 13px;
+
+  background: var(--rw-surface);
+}
+
+.rw-delivery-option > svg,
+.rw-payment-option > svg {
+  width: 20px;
+  height: 20px;
+
+  flex-shrink: 0;
+
+  color: var(--rw-gold);
+}
+
+.rw-delivery-option strong,
+.rw-payment-option strong {
+  display: block;
+
+  font-size: 13px;
+}
+
+.rw-delivery-option p,
+.rw-payment-option p {
+  margin: 5px 0 0;
+
+  color: var(--rw-muted);
+  font-size: 11px;
+}
+
+.rw-coupon-input {
+  display: flex;
+  gap: 10px;
+}
+
+.rw-coupon-input input {
+  flex: 1;
+  min-width: 0;
+
+  padding: 12px;
+
+  border: 1px solid var(--rw-border);
+  border-radius: 11px;
+
+  outline: none;
+
+  background: var(--rw-surface);
+  color: var(--rw-cream);
+}
+
+.rw-coupon-input input:focus {
+  border-color: var(--rw-gold);
+}
+
+.rw-coupon-input button {
+  padding: 0 16px;
+
+  border: 1px solid var(--rw-gold);
+  border-radius: 11px;
+
+  background: var(--rw-gold);
+  color: #1b120b;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.rw-coupon-success {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px;
+
+  border: 1px solid rgba(115, 170, 120, 0.25);
+  border-radius: 10px;
+
+  background: rgba(115, 170, 120, 0.08);
+
+  color: #9ecba0;
+  font-size: 12px;
+}
+
+.rw-coupon-success > svg {
+  width: 17px;
+  height: 17px;
+}
+
+.rw-coupon-success span {
+  flex: 1;
+}
+
+.rw-coupon-success button {
+  display: grid;
+  place-items: center;
+
+  width: 28px;
+  height: 28px;
+
+  border: 0;
+  background: transparent;
+  color: inherit;
+}
+
+.rw-order-summary {
+  padding: 18px;
+
+  border: 1px solid var(--rw-border);
+  border-radius: 14px;
+
+  background: var(--rw-surface);
+}
+
+.rw-order-summary h3 {
+  margin-bottom: 18px;
+
+  font-size: 18px;
+}
+
+.rw-summary-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+
+  margin-bottom: 12px;
+
+  color: var(--rw-muted);
+  font-size: 12px;
+}
+
+.rw-summary-row span:last-child {
+  color: var(--rw-cream);
+  font-weight: 600;
+}
+
+.rw-summary-row.rw-discount span:last-child {
+  color: #9ecba0;
+}
+
+.rw-summary-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+
+  margin-top: 18px;
+  padding-top: 18px;
+
+  border-top: 1px solid var(--rw-border);
+}
+
+.rw-summary-total span {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.rw-summary-total strong {
+  color: var(--rw-gold-light);
+  font-size: 24px;
+}
+
+.rw-submit-order {
+  min-height: 54px;
+}
+
+.rw-checkout-note {
+  margin: -12px 0 20px;
+
+  color: var(--rw-muted);
+  font-size: 11px;
+  text-align: center;
+}
+
+.rw-success-modal {
+  align-self: center;
+
+  width: calc(100% - 32px);
+  max-width: 440px;
+
+  max-height: 90vh;
+  overflow-y: auto;
+
+  margin: auto;
+  padding: 30px;
+
+  border: 1px solid var(--rw-border);
+  border-radius: 22px;
+
+  background: var(--rw-surface);
+
+  text-align: center;
+
+  animation: rw-modal-in 0.25s ease;
+}
+
+.rw-success-icon {
+  display: grid;
+  place-items: center;
+
+  width: 70px;
+  height: 70px;
+
+  margin: 0 auto 20px;
+
+  border-radius: 50%;
+
+  background: rgba(198, 154, 98, 0.12);
+  color: var(--rw-gold);
+}
+
+.rw-success-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.rw-success-modal h2 {
+  margin: 10px 0;
+
+  font-size: 30px;
+}
+
+.rw-success-modal > p {
+  margin: 0 0 22px;
+
+  color: var(--rw-muted);
+  font-size: 13px;
+}
+
+.rw-order-code {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  margin-bottom: 22px;
+  padding: 16px;
+
+  border: 1px dashed var(--rw-border);
+  border-radius: 12px;
+
+  background: var(--rw-bg);
+}
+
+.rw-order-code span {
+  color: var(--rw-muted);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.rw-order-code strong {
+  color: var(--rw-gold-light);
+  font-size: 24px;
+  letter-spacing: 2px;
+}
+
+.rw-success-modal .rw-primary-button,
+.rw-success-modal .rw-secondary-button {
+  margin-top: 12px;
+} 
+/* ========================================
+   REDWINGS COFFEE
+   PARTE 1F: HISTORIAL, PERFIL Y FOOTER
+======================================== */
+
+.rw-order-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  padding: 24px 0;
+}
+
+.rw-order-card {
+  padding: 18px;
+
+  border: 1px solid var(--rw-border);
+  border-radius: 16px;
+
+  background: var(--rw-surface);
+}
+
+.rw-order-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.rw-order-card-header > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.rw-order-label {
+  color: var(--rw-muted);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.rw-order-card-header strong {
+  color: var(--rw-gold-light);
+  font-size: 16px;
+}
+
+.rw-order-status {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 6px 10px;
+
+  border: 1px solid var(--rw-border);
+  border-radius: 20px;
+
+  background: var(--rw-surface-light);
+  color: var(--rw-muted);
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.rw-status-recibido {
+  color: var(--rw-gold-light);
+}
+
+.rw-status-confirmado {
+  color: #9ecba0;
+}
+
+.rw-status-cancelado {
+  color: #e58b85;
+}
+
+.rw-order-date {
+  margin: 12px 0;
+
+  color: var(--rw-muted);
+  font-size: 11px;
+}
+
+.rw-order-products {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  padding: 14px 0;
+
+  border-top: 1px solid var(--rw-border);
+  border-bottom: 1px solid var(--rw-border);
+}
+
+.rw-order-product {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  color: var(--rw-muted);
+  font-size: 11px;
+}
+
+.rw-order-product span:last-child {
+  color: var(--rw-cream);
+  font-weight: 600;
+}
+
+.rw-order-card-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding: 16px 0;
+}
+
+.rw-order-card-total span {
+  color: var(--rw-muted);
+  font-size: 12px;
+}
+
+.rw-order-card-total strong {
+  color: var(--rw-gold-light);
+  font-size: 20px;
+}
+
+.rw-order-card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rw-profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 30px 15px;
+
+  text-align: center;
+}
+
+.rw-profile-avatar {
+  display: grid;
+  place-items: center;
+
+  width: 76px;
+  height: 76px;
+
+  margin-bottom: 16px;
+
+  border: 1px solid rgba(198, 154, 98, 0.3);
+  border-radius: 50%;
+
+  background: var(--rw-surface-light);
+  color: var(--rw-gold);
+}
+
+.rw-profile-avatar svg {
+  width: 32px;
+  height: 32px;
+}
+
+.rw-profile-card h3 {
+  margin: 0 0 7px;
+
+  font-size: 24px;
+}
+
+.rw-profile-card p {
+  margin: 0;
+
+  color: var(--rw-muted);
+  font-size: 12px;
+}
+
+.rw-loyalty-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  margin-bottom: 24px;
+  padding: 20px;
+
+  border: 1px solid rgba(198, 154, 98, 0.25);
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(198, 154, 98, 0.12),
+      rgba(29, 23, 18, 0.8)
+    );
+}
+
+.rw-loyalty-icon {
+  display: grid;
+  place-items: center;
+
+  width: 48px;
+  height: 48px;
+
+  flex-shrink: 0;
+
+  border-radius: 13px;
+
+  background: rgba(198, 154, 98, 0.15);
+  color: var(--rw-gold);
+}
+
+.rw-loyalty-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.rw-loyalty-card > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.rw-loyalty-card span {
+  color: var(--rw-muted);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.rw-loyalty-card strong {
+  color: var(--rw-gold-light);
+  font-size: 23px;
+}
+
+.rw-loyalty-card p {
+  margin: 0;
+
+  color: var(--rw-muted);
+  font-size: 11px;
+}
+
+.rw-profile-details {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 24px;
+
+  border: 1px solid var(--rw-border);
+  border-radius: 14px;
+
+  background: var(--rw-surface);
+}
+
+.rw-profile-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  padding: 15px 17px;
+
+  border-bottom: 1px solid var(--rw-border);
+}
+
+.rw-profile-detail:last-child {
+  border-bottom: 0;
+}
+
+.rw-profile-detail span {
+  color: var(--rw-muted);
+  font-size: 10px;
+}
+
+.rw-profile-detail strong {
+  color: var(--rw-cream);
+  font-size: 13px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.rw-drawer > .rw-primary-button,
+.rw-drawer > .rw-secondary-button {
+  margin-bottom: 12px;
+}
+
+.rw-drawer > .rw-text-button {
+  margin-top: 8px;
+  padding: 12px;
+}
+
+.rw-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 45px 5% 25px;
+
+  border-top: 1px solid var(--rw-border);
+
+  background: #0d0907;
+
+  text-align: center;
+}
+
+.rw-footer-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  color: var(--rw-gold-light);
+}
+
+.rw-footer-brand svg {
+  width: 22px;
+  height: 22px;
+}
+
+.rw-footer-brand span {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.rw-footer > p {
+  max-width: 360px;
+
+  margin: 15px 0 25px;
+
+  color: var(--rw-muted);
+  font-size: 12px;
+}
+
+.rw-footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  margin-bottom: 25px;
+}
+
+.rw-footer-links button {
+  padding: 5px;
+
+  border: 0;
+  background: transparent;
+
+  color: var(--rw-muted);
+  font-size: 11px;
+}
+
+.rw-footer-links button:hover {
+  color: var(--rw-gold-light);
+}
+
+.rw-footer-copy {
+  color: #76685c;
+  font-size: 10px;
+} 
+/* ========================================
+   REDWINGS COFFEE
+   PARTE 1G: RESPONSIVE Y MOVIL
+======================================== */
+
+/* TABLETS */
+
+@media (max-width: 900px) {
+  .rw-products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .rw-header {
+    padding: 14px 4%;
+  }
+
+  .rw-nav {
+    gap: 20px;
+    padding: 12px 4%;
+  }
+
+  .rw-section {
+    padding: 45px 4%;
+  }
+
+  .rw-section-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .rw-section-header p {
+    max-width: 100%;
+  }
+}
+
+/* TELEFONOS */
+
+@media (max-width: 600px) {
+  .rw-header {
+    gap: 10px;
+    padding: 12px 16px;
+  }
+
+  .rw-header-brand {
+    gap: 9px;
+  }
+
+  .rw-header-brand img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .rw-header-brand h1 {
+    font-size: 16px;
+  }
+
+  .rw-header-brand p {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .rw-header-actions {
+    gap: 7px;
+  }
+
+  .rw-header-actions .rw-icon-button {
+    width: 38px;
+    height: 38px;
+  }
+
+  .rw-nav {
+    justify-content: flex-start;
+    gap: 22px;
+
+    overflow-x: auto;
+
+    padding: 12px 16px;
+  }
+
+  .rw-nav button {
+    flex-shrink: 0;
+    font-size: 11px;
+  }
+
+  .rw-section {
+    padding: 38px 16px;
+  }
+
+  .rw-section-header {
+    margin-bottom: 22px;
+  }
+
+  .rw-section-header h2 {
+    font-size: 28px;
+  }
+
+  .rw-section-header p {
+    font-size: 12px;
+  }
+
+  .rw-products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .rw-product-card {
+    border-radius: 14px;
+  }
+
+  .rw-product-image {
+    aspect-ratio: 1 / 1;
+  }
+
+  .rw-product-info {
+    padding: 12px;
+  }
+
+  .rw-product-info h3 {
+    font-size: 15px;
+  }
+
+  .rw-product-description {
+    margin-bottom: 14px;
+    font-size: 10px;
+  }
+
+  .rw-product-category {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .rw-product-price {
+    font-size: 16px;
+  }
+
+  .rw-product-add {
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+  }
+
+  .rw-product-add svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .rw-product-details-button {
+    padding: 9px 5px;
+    font-size: 10px;
+  }
+
+  .rw-product-badge {
+    top: 8px;
+    left: 8px;
+
+    padding: 5px 7px;
+
+    font-size: 8px;
+  }
+
+  .rw-product-favorite {
+    top: 8px;
+    right: 8px;
+
+    width: 30px;
+    height: 30px;
+  }
+
+  .rw-menu-controls {
+    gap: 15px;
+    margin-bottom: 22px;
+  }
+
+  .rw-search-input {
+    height: 46px;
+    font-size: 12px;
+  }
+
+  .rw-category-button {
+    padding: 10px 14px;
+    font-size: 10px;
+  }
+
+  .rw-menu-result {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .rw-menu-sort {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .rw-menu-sort select {
+    max-width: 170px;
+  }
+
+  .rw-overlay {
+    align-items: flex-end;
+  }
+
+  .rw-drawer {
+    width: 100%;
+    max-width: 100%;
+    height: 94%;
+
+    padding: 22px 18px;
+
+    border-top: 1px solid var(--rw-border);
+    border-left: 0;
+
+    border-radius: 22px 22px 0 0;
+  }
+
+  .rw-drawer-header h2 {
+    font-size: 25px;
+  }
+
+  .rw-cart-image {
+    width: 68px;
+    height: 68px;
+  }
+
+  .rw-cart-item {
+    gap: 10px;
+  }
+
+  .rw-cart-item-info h3 {
+    font-size: 14px;
+  }
+
+  .rw-success-modal {
+    padding: 24px 20px;
+  }
+
+  .rw-success-modal h2 {
+    font-size: 26px;
+  }
+
+  .rw-footer {
+    padding: 35px 16px 22px;
+  }
+
+  .rw-footer-links {
+    gap: 14px;
+  }
+}
+
+/* TELEFONOS MUY PEQUENOS */
+
+@media (max-width: 360px) {
+  .rw-products-grid {
+    gap: 9px;
+  }
+
+  .rw-product-info {
+    padding: 10px;
+  }
+
+  .rw-product-info h3 {
+    font-size: 13px;
+  }
+
+  .rw-product-price {
+    font-size: 14px;
+  }
+
+  .rw-product-add {
+    width: 31px;
+    height: 31px;
+  }
+
+  .rw-header-brand h1 {
+    font-size: 14px;
+  }
+
+  .rw-header-actions .rw-icon-button {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+/* ANIMACIONES */
+
+@keyframes rw-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rw-slide-in {
+  from {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes rw-modal-in {
+  from {
+    transform: translateY(15px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* REDUCIR ANIMACIONES SI EL USUARIO LO PREFIERE */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+
+
+.rw-menu-sort select {
+  max-width: 150px;
+
+  padding: 9px 12px;
+
+  border: 1px solid var(--rw-border);
+  border-radius: 10px;
+
+  outline: none;
+
+  background: var(--rw-surface);
+  color: var(--rw-cream);
+
+  font-size: 11px;
+}
+
+.rw-menu-sort select:focus {
+  border-color: var(--rw-gold);
+}
+
